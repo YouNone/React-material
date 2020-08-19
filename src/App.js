@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import {
 	// Switch, 
 	Route
@@ -7,6 +7,8 @@ import {
 import NavBar from './NavBar/NavBar'
 import Home from './Home/Home'
 import About from './About/About'
+import User from './User/User'
+import Auth from './Auth/Auth';
 
 
 class App extends React.Component {
@@ -16,7 +18,9 @@ class App extends React.Component {
 				<div><NavBar /></div>
 				<div className="main">
 					<Route exact path="/" component={Home} />
+					<Route path="/users" component={User} />
 					<Route path="/about" component={About} />
+					<Route path="/auth" component={Auth} />
 				</div>
 			</div >
 		);

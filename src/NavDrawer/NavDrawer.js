@@ -17,14 +17,24 @@ export class NavDrawer extends React.Component {
 					onKeyDown={this.props.toggleDrawer(false)}
 				>
 					<List style={{ width: 250 }}>
-						<Link to="/">
+						<Link className='text-link' to="/">
 							<ListItem button>
-								<ListItemText primary={"Home"} />
+								<ListItemText primary="Home" />
 							</ListItem>
 						</Link>
-						<Link to="/about">
+						<Link className='text-link' to="/users">
 							<ListItem button>
-								<ListItemText primary={"About"} />
+								<ListItemText primary="Users" />
+							</ListItem>
+						</Link>
+						<Link className='text-link' to="/auth">
+							<ListItem button>
+								<ListItemText primary="Auth" />
+							</ListItem>
+						</Link>
+						<Link className='text-link' to="/about">
+							<ListItem button>
+								<ListItemText primary="About" />
 							</ListItem>
 						</Link>
 					</List>
