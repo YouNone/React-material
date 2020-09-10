@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { auth } from '../store/actions/auth'
 import FormButton from '../Ui/FormButton/FormButton'
 import FormInput from '../Ui/Input/Input'
-import axios from 'axios'
+// import axios from 'axios'
 
 class Auth extends Component {
 
@@ -39,33 +39,20 @@ class Auth extends Component {
         }
     }
 
-    loginHandler = async () => {
-        const authData = {
-            email: this.state.formControls.email.value,
-            password: this.state.formControls.password.value,
-            returnSecureToken: true
-        }
-        try {
-            const response = axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA7-lkNJqD7H-SchOHXiGnCvcDfMDhv5Cg', authData)
-            console.log( response.data);
-        } catch (e) {
-            console.log(e);
-        }
+    loginHandler = () => {
+        this.props.auth(
+            this.state.formControls.email.value,
+            this.state.formControls.password.value,
+            true
+        )
     }
 
-    registerHandler = async () => {
-        const authData = {
-            email: this.state.formControls.email.value,
-            password: this.state.formControls.password.value,
-            returnSecureToken: true
-        }
-        try {
-            const response = axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA7-lkNJqD7H-SchOHXiGnCvcDfMDhv5Cg', authData)
-            console.log(response.data); 
-        } catch (e) {
-            console.log(e);
-        }
-
+    registerHandler = () => {
+        this.props.auth(
+            this.state.formControls.email.value,
+            this.state.formControls.password.value,
+            false
+        )
     }
 
     submitHandler = event => {

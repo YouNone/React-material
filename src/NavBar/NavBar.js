@@ -39,6 +39,7 @@ export default class NavBar extends React.Component {
                 </AppBar>
 
                 <NavDrawer
+                    isAuthenticated={this.props.isAuthenticated}
                     drawerOpened={this.state.drawerOpened}
                     toggleDrawer={this.toggleDrawer}
                 />
