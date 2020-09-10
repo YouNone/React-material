@@ -13,9 +13,14 @@ import Logout from './Logout/Logout';
 
 class App extends React.Component {
 	render() {
+		let isAuth // = this.props.isAuthenticated;
+		let token = localStorage.getItem('token')
+		if (token) {
+			console.log(token);
+			isAuth = true
+		}
 
-		
-		console.log('App', this.props.isAuthenticated);
+		// console.log('App', this.props.isAuthenticated);
 		let routes = (
 			<div className="main">
 				<Switch>
@@ -23,12 +28,11 @@ class App extends React.Component {
 					<Route path="/users" component={User} />
 					<Route path="/about" component={About} />
 					<Route path="/auth" component={Auth} />
-					<Redirect to="/Auth" />
 				</Switch>
 			</div>
 		)
 
-		if (this.props.isAuthenticated) {
+		if (isAuth) {
 			routes = (
 				<div className="main">
 					<Switch>
@@ -40,11 +44,21 @@ class App extends React.Component {
 					</Switch>
 				</div>
 			)
+		} else {
+			routes = (
+				<div className="main">
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route path="/about" component={About} />
+						<Route path="/auth" component={Auth} />
+					</Switch>
+				</div>
+			)
 		}
 
 		return (
 			<div className="App">
-				<div><NavBar isAuthenticated={this.props.isAuthenticated} /></div>
+				<div><NavBar isAuthenticated={isAuth} /></div>
 				{routes}
 			</div >
 		);
