@@ -29,6 +29,7 @@ export default class NavBar extends React.Component {
                             color="inherit"
                             aria-label="Menu"
                             onClick={this.toggleDrawer(true)}
+                            className="mr-3"
                         >
                         <MenuIcon />
                         </IconButton>

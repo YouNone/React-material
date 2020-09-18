@@ -1,19 +1,33 @@
+
 body {
   margin: 0;
   padding: 0;
 }
-.main {
+.brd {
   border: 1px solid red;
 }
 /* .NavBar {
   position: absolute;
 } */
-.text-link {
-  color: inherit;
-  text-decoration: inherit;
+
+.MuiTableCell-head {
+  font-weight: bold;
 }
 
-// .formInput {
-//   margin: 5px;
-//   padding: 5px;
-// }
+.text-link .text-link:focus, .text-link:hover, .text-link:visited, .text-link:link, .text-link:active {
+  color: inherit;
+  text-decoration: none;
+}
+.auth-form {
+  background: white;
+  box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, .5);
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  div {
+    margin-top: 5px;
+  }
+}
+

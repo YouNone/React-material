@@ -1,12 +1,15 @@
 import React from 'react'
-import { TextField, makeStyles } from '@material-ui/core'
-import './Input.scss'
+import { 
+	TextField, 
+	// makeStyles
+} from '@material-ui/core'
 
-const useStyles = makeStyles(theme => ({
-	TextField: {
-		margin: 5,
-	}
-}));
+// const useStyles = makeStyles(theme => ({
+// 	TextField: {
+// 		margin: 5,
+// 		width:"100%"
+// 	}
+// }));
 
 
 function isInvalid({ valid, touched, shouldValidate }) {
@@ -14,7 +17,7 @@ function isInvalid({ valid, touched, shouldValidate }) {
 }
 
 const FormInput = props => {
-	const classes = useStyles();
+	// const classes = useStyles();
 
 	const inputType = props.type || 'text'
 	const htmlFor = `${inputType}-${Math.random()}`
@@ -24,25 +27,16 @@ const FormInput = props => {
 	// }
 
 	return (
-		<div>
-			{/* <label htmlFor={htmlFor}>{props.label}</label> */}
 			<TextField
-				// className="formInput"
-				className={classes.TextField}
 				label={props.label}
 				type={inputType}
 				id={htmlFor}
 				value={props.value}
 				variant="outlined"
 				onChange={props.onChange}
+				helperText={isInvalid(props) ? props.errorMessage || 'Введите верное значение' : null}
 			/>
-
-			{
-				isInvalid(props)
-					? <span>{props.errorMessage || 'Введите верное значение'}</span>
-					: null
-			}
-		</div>
+			
 	)
 }
 

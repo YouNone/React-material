@@ -6,25 +6,6 @@ import { ListItem, ListItemText } from "@material-ui/core";
 
 export class NavDrawer extends React.Component {
 
-	// renderLinks(links) {
-	// 	return links.map((link, index) => {
-	// 		return (
-	// 			<li key={index}>
-	// 				<List
-	// 					to={link.to}
-	// 					exact={link.exact}
-	// 					// activeClassName={classes.active}
-	// 					onClick={this.clickHandler}
-	// 				>
-	// 					<ListItem button>
-	// 						<ListItemText>{link.label}</ListItemText>
-	// 					</ListItem>
-
-	// 				</List>
-	// 			</li>
-	// 		)
-	// 	})
-	// }
 
 	render() {
 		let links = (

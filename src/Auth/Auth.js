@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import classes from './Auth.scss'
 import is from 'is_js'
 import { connect } from 'react-redux'
 import { auth } from '../store/actions/auth'
@@ -114,7 +113,7 @@ class Auth extends Component {
                     touched={control.touched}
                     label={control.label}
                     shouldValidate={!!control.validation}
-                    errorMessage={control.errorMessage}
+                    helperText={control.errorMessage}
                     onChange={event => this.onChangeHandler(event, controlName)}
                 />
             )
@@ -123,32 +122,32 @@ class Auth extends Component {
 
     render() {
         return (
-            <div className={classes.Auth}>
-                <div>
-                    <h1>Авторизация</h1>
+            <div className="row">
+                <div className="mx-auto mt-5 col-2 auth-form">
+                    <h3>Авторизация</h3>
+                    <div>
+                        <form onSubmit={this.submitHandler}>
+                            {this.renderInputs()}
+                            <div>
+                                <FormButton
+                                    type="success"
+                                    onClick={this.loginHandler}
+                                    disabled={!this.state.isFormValid}
+                                >Войти
+                            </FormButton>
 
-                    <form onSubmit={this.submitHandler} className={classes.AuthForm}>
-
-                        {this.renderInputs()}
-
-                        <FormButton
-                            type="success"
-                            onClick={this.loginHandler}
-                            disabled={!this.state.isFormValid}
-                        >
-                            Войти
-                        </FormButton>
-
-                        <FormButton
-                            type="primary"
-                            onClick={this.registerHandler}
-                            disabled={!this.state.isFormValid}
-                        >
-                            Зарегистрироваться
-                        </FormButton>
-                    </form>
+                                <FormButton
+                                    type="primary"
+                                    onClick={this.registerHandler}
+                                    disabled={!this.state.isFormValid}
+                                >Зарегистрироваться
+                            </FormButton>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+
         )
     }
 }

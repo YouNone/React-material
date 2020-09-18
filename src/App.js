@@ -16,11 +16,10 @@ class App extends React.Component {
 		let isAuth // = this.props.isAuthenticated;
 		let token = localStorage.getItem('token')
 		if (token) {
-			console.log(token);
+			// console.log(token);
 			isAuth = true
 		}
 
-		// console.log('App', this.props.isAuthenticated);
 		let routes = (
 			<div className="main">
 				<Switch>
