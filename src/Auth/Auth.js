@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { auth } from '../store/actions/auth'
 import FormButton from '../Ui/FormButton/FormButton'
 import FormInput from '../Ui/Input/Input'
-// import axios from 'axios'
 
 class Auth extends Component {
 
@@ -89,7 +88,7 @@ class Auth extends Component {
         control.valid = this.validateControl(control.value, control.validation)
 
         formControls[controlName] = control
-
+        
         let isFormValid = true
 
         Object.keys(formControls).forEach(name => {

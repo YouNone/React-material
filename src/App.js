@@ -16,7 +16,6 @@ class App extends React.Component {
 		let isAuth // = this.props.isAuthenticated;
 		let token = localStorage.getItem('token')
 		if (token) {
-			// console.log(token);
 			isAuth = true
 		}
 
