@@ -10,6 +10,7 @@ import User from './User/User'
 import Auth from './Auth/Auth';
 import { connect } from 'react-redux';
 import Logout from './Logout/Logout';
+import UserForm from './UserForm/UserForm';
 
 class App extends React.Component {
 	render() {
@@ -38,6 +39,7 @@ class App extends React.Component {
 						<Route path="/users" component={User} />
 						<Route path="/about" component={About} />
 						<Route path="/logout" component={Logout} />
+						<Route path="/userform" component={UserForm} />
 						<Redirect to="/" />
 					</Switch>
 				</div>

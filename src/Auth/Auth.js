@@ -88,7 +88,7 @@ class Auth extends Component {
         control.valid = this.validateControl(control.value, control.validation)
 
         formControls[controlName] = control
-        
+
         let isFormValid = true
 
         Object.keys(formControls).forEach(name => {
@@ -133,6 +133,7 @@ class Auth extends Component {
                                     onClick={this.loginHandler}
                                     disabled={!this.state.isFormValid}
                                 >Войти
+                                {/* <div className="lds-ring"><div></div></div> */}
                             </FormButton>
 
                                 <FormButton
