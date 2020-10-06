@@ -1,16 +1,43 @@
-import { Button } from '@material-ui/core';
+import { Button, Input, Paper, withStyles } from '@material-ui/core';
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default class UserForm extends React.Component {
+
+const styles = theme => ({
+    root: {
+        // border: "1px solid red",
+        width: '300px',
+        height: '500px',
+        margin: '20px auto',
+
+    },
+    h1: {
+        padding: '15px'
+    }, 
+
+    input: {
+        margin: '10px'
+
+    },
+    form: {
+        display: 'flex',
+        flexDirection: 'column'
+    }
+
+});
+
+class UserForm extends React.Component {
+
     submitHandler = event => {
         event.preventDefault()
     }
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            name: '',
             age: null,
+            code: '',
+            date_birth: null
         };
     }
     myChangeHandler = (event) => {
@@ -25,45 +52,62 @@ export default class UserForm extends React.Component {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <div>
-                <h3>Создание пользователя</h3>
-                <form onSubmit={this.submitHandler} >
-                    <p>Enter your name:</p>
-                    <input
-                        type='text'
-                        name='username'
-                        onChange={this.myChangeHandler}
-                    />
-                    <p>Enter your age:</p>
-                    <input
-                        type='text'
-                        name='age'
-                        onChange={this.myChangeHandler}
-                    />
-                    <p>Enter your email:</p>
-                    <input
-                        type='text'
-                        name='email'
-                        onChange={this.myChangeHandler}
-                    />
-                </form>
-                <Button  
-                    color="primary" 
-                    variant="contained"
-                >
-                    Сохранить
-                </Button>
-                <Link className="text-link" to="/users">
-                    <Button  
-                        color="secondary" 
-                        variant="contained" 
-                        className="add-button"
-                    >
-                    Назад
+            <Paper className={classes.root} elevation={3}>
+                <div>
+                    <h3 className={classes.h1}>Создание пользователя</h3>
+                    <form className={classes.form} onSubmit={this.submitHandler} >
+                        <div>
+                            <label>Имя:</label>
+                            <Input
+                                className={classes.input}
+                                type='text'
+                                name='username'
+                                onChange={this.myChangeHandler}
+                            />
+                        </div>
+                        <div>
+                            <label>Email:</label>
+                            <Input
+                                className={classes.input}
+                                type='text'
+                                name='email'
+                                onChange={this.myChangeHandler}
+                            />
+                        </div>
+                        <div>
+                            <label>Код:</label>
+                            <Input
+                                className={classes.input}
+                                type='text'
+                                name='code'
+                                onChange={this.myChangeHandler}
+                            />
+                        </div>
+
+                        <div>
+                            <label>Дата рождения:</label>
+
+                        </div>
+                    </form>
+                    <Button
+                        color="primary"
+                        variant="contained"
+                    >Сохранить
                     </Button>
-                </Link>
-            </div>
+                    <Link className="text-link" to="/users">
+                        <Button
+                            color="secondary"
+                            variant="contained"
+                            className="add-button"
+                        >Назад
+                        </Button>
+                    </Link>
+                </div>
+            </Paper>
         )
     }
 }
+export default withStyles(styles, { withTheme: true })(UserForm);
