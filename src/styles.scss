@@ -44,3 +44,51 @@ body {
     padding-left: 35px;
   }
 }
+
+.user-form {
+  width: 650px;
+  height: 400px;
+  h3 {
+    padding: 15px;
+  }
+  .form-holder {
+    display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	.form-box {
+		width: 280px;
+	}
+    input {
+	  margin: 3px;
+	  padding: 7px;
+	}
+	.form-label {
+		min-width: 60px;
+	}
+	.radio-holder {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+		height: 50px;
+		label {
+			margin-bottom: 13px;
+		}
+		.radio-label {
+			font-size: 15px;	
+			margin-bottom: 0;	
+		}
+	}
+
+	.MuiFormGroup-root {
+		display: flex;
+		flex-direction: row;
+	}
+}
+	.button-panel {
+		margin-top: 15px;
+		float: right;
+		button {
+			margin: 15px 15px 5px
+		}
+	}
+}
